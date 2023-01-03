@@ -1,0 +1,9 @@
+{{ define "main" }}
+
+    {{ with .Site.GetPage "about" }}
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ end }}
+
+    {{ .Content }}
+    
+{{ end }}
