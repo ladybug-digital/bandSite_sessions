@@ -43,6 +43,8 @@ successful albums. She is known for her powerful and dynamic playing style, as w
 ability to play a wide range of genres. When she's not on tour, Rachel enjoys spending time with her family
 and working on new music in her home studio.
 
+![rachel_james](images/rachel_james.png "rachel james")
+
 ---
 
 ## Alex Thompson
@@ -61,6 +63,8 @@ Since then, Alex has released a string of successful albums and has toured all o
 to packed arenas and festivals. He is known for his incredible technical proficiency and his ability
 to play a wide variety of styles, from blues and rock to jazz and country. When he's not on tour,
 Alex enjoys spending time with his family and working on new music in his home studio.
+
+![alex_thompson](images/alex_thompson.png "alex_thompson")
 
 ---
 
@@ -81,6 +85,8 @@ In her free time, Jane enjoys collaborating with other musicians and exploring n
 She is also an avid supporter of music education and frequently gives back to her community by hosting
 workshops and clinics for aspiring musicians.
 
+![john_doe](images/john_doe.png "john_doe")
+
 ---
 
 ## Sarah Johnson
@@ -98,3 +104,5 @@ Since then, Sarah has released a string of successful albums and has toured all 
 packed arenas and festivals. She is known for her incredible speed and precision, and her ability to play a
 wide variety of styles, from rock and pop to jazz and funk. When she's not on tour, Sarah enjoys spending time
 with her family and working on new music in her home studio.
+
+![sarah_johnson](images/sarah_johnson.png "sarah_johnson")
