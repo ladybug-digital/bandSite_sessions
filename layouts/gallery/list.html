@@ -1,9 +1,9 @@
 {{ define "main" }}
 
-    {{ range .Pages }}
+    <h1>{{ .Title | pluralize }}</h1>
+
+    {{ range .RegularPages }}
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     {{ end }}
 
-    {{ .Content }}
-    
 {{ end }}
