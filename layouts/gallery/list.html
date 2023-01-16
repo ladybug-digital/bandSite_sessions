@@ -2,8 +2,19 @@
 
     <h1>{{ .Title | pluralize }}</h1>
 
-    {{ range .RegularPages }}
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    {{ end }}
+        {{ range $reg_p := .RegularPages }}
+            {{ with .Params.album_thumbnail }}
+                <figure>
+                    <a href="{{ $reg_p.RelPermalink }}">
+                        <img src="{{ ($reg_p.Resources.GetMatch .).RelPermalink }}" alt="{{ $reg_p.Title }}">
+                        <figcaption>{{ $reg_p.Title }}</figcaption>
+                    </a>
+                </figure>
+            {{ else }}
+                <li>
+                    <a href="{{ $reg_p.RelPermalink }}">{{ $reg_p.Title }}</a>
+                </li>
+            {{ end }}
+        {{ end }}
 
 {{ end }}
