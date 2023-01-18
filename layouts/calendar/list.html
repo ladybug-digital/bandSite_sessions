@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+    <h2>{{ .Title }}</h2>
+
+    {{ range .RegularPages.ByDate }}
+        <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+            <p>{{ .Date | time.Format "Monday, January 2, 2006" }}</p>
+        </a>
+        <hr>
+    {{ end }}
+    
+{{ end }}
