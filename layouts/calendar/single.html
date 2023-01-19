@@ -1,7 +1,18 @@
 {{ define "main" }}
 
-    <h1>Title: {{ .Title }}</h1>
-    <h3>Description: {{ .Description }}</h3>
-    <b>Date: {{ .Date | time.Format ":date_full" }}</b>
-    
+    <h1>Title: "{{ .Title }}"</h1>
+    <p><b>Description: "{{ .Description }}"</b></p>
+    <p><b>Date: "{{ .Date | time.Format ":date_full" }}"</b></p>
+    <hr>
+
+    {{ with .Resources.GetMatch .Params.event.flyer }}
+        <h3>{{ .Title }}</h3>
+        <img src="{{ .RelPermalink }}" alt="">
+    {{ end }}
+        
+    {{ with .Resources.GetMatch .Params.event.venue }}
+        <h3>{{ .Title }}</h3>
+        <img src="{{ .RelPermalink }}" alt="">
+    {{ end }}
+
 {{ end }}

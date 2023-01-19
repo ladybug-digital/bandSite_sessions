@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+    <h1>{{ .Title }}</h1>
+    
+    {{ range where (.Site.RegularPages.ByDate) "Section" "calendar" }}
+        {{ if eq .Params.event.public true }}
+            <p>{{ .Title }}</p>
+            <p style="color: green;">{{ .Date | time.Format "Monday, January 2, 2006" }}</p>
+            <a href="{{ .RelPermalink }}">details</a>
+            <hr>
+        {{ end }}
+    {{ end }}
+    
+{{ end }}

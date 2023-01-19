@@ -5,4 +5,4 @@ title = 'bandSite SessionS'
 disableKinds = ["taxonomy","term"]
 
 [frontmatter]
-  date = [':filename']
+  date = [':filename', ':default']

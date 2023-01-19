@@ -1,13 +1,24 @@
 {{ define "main" }}
 
     <h2>{{ .Title }}</h2>
-
-    {{ range .RegularPages.ByDate }}
-        <a href="{{ .RelPermalink }}">
-            {{ .Title }}
-            <p>{{ .Date | time.Format "Monday, January 2, 2006" }}</p>
-        </a>
-        <hr>
-    {{ end }}
     
+    {{ range $elm_val := .RegularPages.ByDate }}
+        {{ if in $elm_val.RelPermalink "/calendar/events/" }}
+            <p>Title: <b>{{ $elm_val.Title }}</b></p>
+            {{ with .Params.event.public }}
+                <p style="color: green;">Date: <b>{{ $elm_val.Date | time.Format "Monday, January 2, 2006" }}</b></p>
+                <a href="{{ $elm_val.RelPermalink }}">event details</a>
+                <hr>
+            {{ else }}
+                <p style="color: red;">{{ $elm_val.Date | time.Format "Monday, January 2, 2006" }}</p>
+                <hr>
+            {{ end }}        
+        {{ end }}
+    {{ end }}
+
+    {{ with .GetPage "public_events" }}
+        <h2>public events</h2>
+        <a href="{{ .RelPermalink }}">click for all public events</a>
+    {{ end }}
+
 {{ end }}
