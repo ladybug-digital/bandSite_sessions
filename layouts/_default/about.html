@@ -1,5 +1,7 @@
 {{ define "main" }}
 
+    <h1>{{ .Parent.Title }}</h1>
+
     <img src="{{ (.Resources.GetMatch "images/band.png").RelPermalink }}" alt="{{ .Title }}">
 
     {{ .Content }}

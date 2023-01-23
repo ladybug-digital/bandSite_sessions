@@ -5,7 +5,7 @@ draft: false
 layout: "about"
 ---
 
-## about us 
+<!-- ## about us  -->
 
 Formed in the summer of 2010, The Wild Ones quickly made a name for themselves  
 with their high-energy live performances and catchy, hook-laden songs.  

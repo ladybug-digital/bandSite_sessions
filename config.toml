@@ -4,5 +4,27 @@ title = 'bandSite SessionS'
 
 disableKinds = ["taxonomy","term"]
 
+[menu]
+[[menu.main]]
+  name = "Home"
+  pageRef = "/"
+#  URL = "/"
+  weight = 10
+[[menu.main]]
+  name = "About"
+  pageRef = "about"
+#  URL = "/about/"
+  weight = 40
+[[menu.main]]
+  name = "Gallery"
+  pageRef = "gallery"
+#  URL = "/gallery/"
+  weight = 20
+[[menu.main]]
+  name = "Calendar"
+  pageRef = "calendar"
+#  URL = "/calendar/"
+  weight = 30
+
 [frontmatter]
   date = [':filename', ':default']
