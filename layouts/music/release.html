@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.data.type }}</p>
+
+    {{ with .Params.data.cover }}
+        {{ with $.Resources.GetMatch . }}
+            <img src="{{ .RelPermalink }}" alt="{{ .Title }}" width="500px">
+        {{ end }}
+    {{ end }}
+
+    <h4>Songs:</h4>
+    {{ range .RegularPages }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+    
+{{ end }}

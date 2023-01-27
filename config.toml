@@ -11,6 +11,10 @@ disableKinds = ["taxonomy","term"]
 #  URL = "/"
   weight = 10
 [[menu.main]]
+  name = "Music"
+  pageRef = "music"
+  weight = 15
+[[menu.main]]
   name = "About"
   pageRef = "about"
 #  URL = "/about/"

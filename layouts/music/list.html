@@ -1,0 +1,29 @@
+{{ define "main" }}
+    
+    <h2>all releases</h2>
+    {{ range $page := .Pages }}
+        <div>
+            {{ with .Params.data.cover }}
+                {{ with $page.Resources.GetMatch . }}
+                    <img src="{{ .RelPermalink }}" alt="{{ .Title }}" width="100px">
+                {{ end }}
+            {{ end }}
+            <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+            <hr>
+        </div>
+    {{ end }}
+
+    <h2>all songs</h2>
+    {{ range $page := .RegularPagesRecursive }}
+        <div>
+            {{ with .Params.data.cover }}
+                {{ with or ($page.Resources.GetMatch .) ($page.Parent.Resources.GetMatch .) }}
+                    <img src="{{ .RelPermalink }}" width="50px" alt="">
+                {{ end }}
+            {{ end }}
+            <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+            <hr>
+        </div>
+    {{ end }}
+
+{{ end }}

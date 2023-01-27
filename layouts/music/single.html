@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+    {{ with .Params.data.cover }}
+        {{ with or ($.Resources.GetMatch .) ($.Parent.Resources.GetMatch .) }}
+            <figure>
+                <img src="{{ .RelPermalink }}" alt="" width="500pxs">
+            </figure>
+        {{ end }}
+    {{ end }}
+
+    <h1>{{ .Title }}</h1>
+    
+    {{.Content}}
+
+    {{- if or .Params.data.lyrics .Params.data.music .Params.data.arr -}}
+        <i>( {{ .Params.data.lyrics }} - {{ .Params.data.music }} - {{ .Params.data.arr }} )</i>
+    {{- end }}
+    <hr>
+    
+    {{ with .Resources.GetMatch $.Params.data.audio }}
+        <audio controls src="{{ .RelPermalink }}"></audio>
+    {{ end }}
+    
+{{ end }}
