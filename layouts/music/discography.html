@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+    <h1>{{ .Title }}</h1>
+    <hr>
+    {{ with .Site.Params.release_types }}
+        {{ range $page_val := where ($.CurrentSection.Pages.ByParam "data.year") "Params.data.type" "in" . }}
+            <div>
+                {{ with .Params.data.cover }}
+                    {{ with $page_val.Resources.GetMatch . }}
+                        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" width="100px">
+                    {{ end }}
+                {{ end }}
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <hr>
+            </div>
+        {{ end }}
+    {{ end }}
+    
+{{ end }}

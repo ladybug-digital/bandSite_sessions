@@ -10,7 +10,7 @@
     {{ end }}
 
     <h4>Songs:</h4>
-    {{ range .RegularPages }}
+    {{ range .RegularPages.ByParam "data.track_num" }}
         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
     {{ end }}
     

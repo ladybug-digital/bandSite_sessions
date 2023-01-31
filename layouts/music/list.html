@@ -1,20 +1,22 @@
 {{ define "main" }}
-    
-    <h2>all releases</h2>
-    {{ range $page := .Pages }}
-        <div>
-            {{ with .Params.data.cover }}
-                {{ with $page.Resources.GetMatch . }}
-                    <img src="{{ .RelPermalink }}" alt="{{ .Title }}" width="100px">
+
+    <h4>all releases</h4>
+    {{ with .Site.Params.release_types }}
+        {{ range $page_val := where ($.Pages.ByParam "data.year") "Params.data.type" "in" . }}
+            <div>
+                {{ with .Params.data.cover }}
+                    {{ with $page_val.Resources.GetMatch . }}
+                        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" width="100px">
+                    {{ end }}
                 {{ end }}
-            {{ end }}
-            <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
-            <hr>
-        </div>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <hr>
+            </div>
+        {{ end }}
     {{ end }}
 
     <h2>all songs</h2>
-    {{ range $page := .RegularPagesRecursive }}
+    {{ range $page := where .RegularPagesRecursive.ByTitle "Params.layout" "==" nil }}
         <div>
             {{ with .Params.data.cover }}
                 {{ with or ($page.Resources.GetMatch .) ($page.Parent.Resources.GetMatch .) }}

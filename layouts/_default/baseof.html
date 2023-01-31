@@ -12,6 +12,13 @@
         <a {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} style="font-size: 1.5em;" {{ end }} 
             href="{{ .URL }}">{{ .Name }}
         </a>
+        {{ if .HasChildren }}
+            {{ range .Children }}
+                <a {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} style="font-size: 1.5em;" {{ end }} 
+                    href="{{ .URL }}">{{ .Name }}
+                </a>
+            {{ end }}
+        {{ end }}
     {{ end }}
 
     {{ block "main" . }}

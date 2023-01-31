@@ -3,11 +3,13 @@ title: "Free sky"
 date: 2023-01-24T14:26:06+01:00
 draft: false
 data:
+  type: "song"
   audio: "free_sky.mp3"
   cover: "free_sky.png"
   music: "Drop"
   lyrics: "Drop"
   arr: "Drop"
+  track_num: 1
 ---
 
 Verse 1:  

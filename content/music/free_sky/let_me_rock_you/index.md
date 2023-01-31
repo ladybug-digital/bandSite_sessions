@@ -3,11 +3,13 @@ title: "Let me rock you"
 date: 2023-01-25T08:38:06+01:00
 draft: false
 data:
+  type: "song"
   audio: "let_me_rock_you.mp3"
   cover: "free_sky.png"
   music: "Eren Turgut"
   lyrics: "Eren Turgut"
   arr: "Samantha Smith"
+  track_num: 3
 ---
 
 Verse 1:  

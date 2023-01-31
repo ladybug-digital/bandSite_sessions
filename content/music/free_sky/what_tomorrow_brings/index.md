@@ -3,11 +3,13 @@ title: "What tomorrow brings"
 date: 2023-01-24T15:07:25+01:00
 draft: false
 data:
+  type: "song"
   audio: "what_tomorrow_brings.mp3"
   cover: "free_sky.png"
   music: "Metini Levi"
   lyrics: "Metini Levi"
   arr: "Emily Williams"
+  track_num: 2
 ---
 
 Verse 1:  
