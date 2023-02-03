@@ -5,6 +5,6 @@ date: :filename
 draft: false
 event:
   public: true
-  flyer: "msic_flyer.png"
+  flyer: "music_flyer.png"
   venue: "venue.png"
 ---

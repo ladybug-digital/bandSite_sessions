@@ -7,7 +7,9 @@
             <div>
                 {{ with .Params.data.cover }}
                     {{ with $page_val.Resources.GetMatch . }}
-                        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" width="100px">
+                        {{ with .Resize "100x" }}
+                            <img src="{{ .RelPermalink }}" alt="{{.Title }}">
+                        {{ end }}
                     {{ end }}
                 {{ end }}
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>

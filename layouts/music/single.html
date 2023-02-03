@@ -2,9 +2,11 @@
 
     {{ with .Params.data.cover }}
         {{ with or ($.Resources.GetMatch .) ($.Parent.Resources.GetMatch .) }}
-            <figure>
-                <img src="{{ .RelPermalink }}" alt="" width="500pxs">
-            </figure>
+            {{ with .Resize "500x" }}
+                <figure>
+                    <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+                </figure>
+            {{ end }}
         {{ end }}
     {{ end }}
 

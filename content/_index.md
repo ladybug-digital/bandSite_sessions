@@ -6,9 +6,8 @@ draft: false
 
 # Band Name
 
-![slika](cover.png)
+{{< render_image src="cover.png" >}}
 
 John Doe  
 :telephone_receiver: +12345678  
 :email: bandSite@example.com
-

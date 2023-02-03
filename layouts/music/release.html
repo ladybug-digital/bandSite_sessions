@@ -5,7 +5,9 @@
 
     {{ with .Params.data.cover }}
         {{ with $.Resources.GetMatch . }}
-            <img src="{{ .RelPermalink }}" alt="{{ .Title }}" width="500px">
+            {{ with .Resize "500x" }}
+                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+            {{ end }}
         {{ end }}
     {{ end }}
 

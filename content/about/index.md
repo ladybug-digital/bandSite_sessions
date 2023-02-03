@@ -5,8 +5,6 @@ draft: false
 layout: "about"
 ---
 
-<!-- ## about us  -->
-
 Formed in the summer of 2010, The Wild Ones quickly made a name for themselves  
 with their high-energy live performances and catchy, hook-laden songs.  
 Comprised of four friends who met in college, the band - fronted by the dynamic  
@@ -43,7 +41,7 @@ successful albums. She is known for her powerful and dynamic playing style, as w
 ability to play a wide range of genres. When she's not on tour, Rachel enjoys spending time with her family
 and working on new music in her home studio.
 
-![rachel_james](images/rachel_james.png "rachel james")
+{{< render_image src="images/rachel_james.png" resize_width="400" >}}
 
 ---
 
@@ -64,7 +62,7 @@ to packed arenas and festivals. He is known for his incredible technical profici
 to play a wide variety of styles, from blues and rock to jazz and country. When he's not on tour,
 Alex enjoys spending time with his family and working on new music in his home studio.
 
-![alex_thompson](images/alex_thompson.png "alex_thompson")
+{{< render_image src="images/alex_thompson.png" resize_width="400" >}}
 
 ---
 
@@ -85,7 +83,7 @@ In her free time, Jane enjoys collaborating with other musicians and exploring n
 She is also an avid supporter of music education and frequently gives back to her community by hosting
 workshops and clinics for aspiring musicians.
 
-![john_doe](images/john_doe.png "john_doe")
+{{< render_image src="images/john_doe.png" resize_width="400" >}}
 
 ---
 
@@ -105,4 +103,4 @@ packed arenas and festivals. She is known for her incredible speed and precision
 wide variety of styles, from rock and pop to jazz and funk. When she's not on tour, Sarah enjoys spending time
 with her family and working on new music in her home studio.
 
-![sarah_johnson](images/sarah_johnson.png "sarah_johnson")
+{{< render_image src="images/sarah_johnson.png" resize_width="400" >}}

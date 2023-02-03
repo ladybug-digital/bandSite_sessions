@@ -6,13 +6,17 @@
     <hr>
 
     {{ with .Resources.GetMatch .Params.event.flyer }}
-        <h3>{{ .Title }}</h3>
-        <img src="{{ .RelPermalink }}" alt="">
+        {{ with .Resize "500x" }}
+            <h3>{{ .Title }}</h3>
+            <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+        {{ end }}
     {{ end }}
         
     {{ with .Resources.GetMatch .Params.event.venue }}
-        <h3>{{ .Title }}</h3>
-        <img src="{{ .RelPermalink }}" alt="">
+        {{ with .Resize "500x" }}
+            <h3>{{ .Title }}</h3>
+            <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+        {{ end }}
     {{ end }}
 
 {{ end }}

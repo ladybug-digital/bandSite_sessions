@@ -1,0 +1,23 @@
+{{ $src := .Get "src" }}
+{{ $resize := dict "height" (.Get "resize_height") "width" (.Get "resize_width") }}
+{{ $img := .Page.Resources.GetMatch $src }}
+
+{{ if and $resize.height $resize.width }}
+    {{/*  paceholder for error  */}}
+{{ else if $resize.height }}
+    {{ with $img }}
+        {{ with .Resize (printf "%sx" $resize.height) }}
+            <img src="{{ .RelPermalink }}">
+        {{ end }}
+    {{ end }}
+{{ else if $resize.width }}
+    {{ with $img }}
+        {{ with .Resize (printf "%sx" $resize.width) }}
+            <img src="{{ .RelPermalink }}">
+        {{ end }}
+    {{ end }}
+{{ else }}
+    {{ with $img }}
+        <img src="{{ .RelPermalink }}">
+    {{ end }}
+{{ end }}

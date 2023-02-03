@@ -1,9 +1,12 @@
 {{ define "main" }}
 
     <h1>{{ .Title }}</h1>
-
     {{ range .Resources.Match "images/*.jpg" }}
-        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" style="width: 500px;">
+        {{ with .Resize "500x" }}
+            <a href="{{ .RelPermalink }}">
+                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+            </a>
+        {{ end }}
     {{ end }}
 
 {{ end }}

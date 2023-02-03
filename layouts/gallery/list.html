@@ -4,12 +4,16 @@
 
         {{ range $reg_p := .RegularPages }}
             {{ with .Params.album_thumbnail }}
-                <figure>
-                    <a href="{{ $reg_p.RelPermalink }}">
-                        <img src="{{ ($reg_p.Resources.GetMatch .).RelPermalink }}" alt="{{ $reg_p.Title }}">
-                        <figcaption>{{ $reg_p.Title }}</figcaption>
-                    </a>
-                </figure>
+                {{ with $reg_p.Resources.GetMatch . }}
+                    {{ with .Resize "500x" }}
+                        <figure>
+                            <a href="{{ $reg_p.RelPermalink }}">
+                                <img src="{{ .RelPermalink }}" alt="{{ $reg_p.Title }}">
+                                <figcaption>{{ $reg_p.Title }}</figcaption>
+                            </a>
+                        </figure>
+                    {{ end }}
+                {{ end }}
             {{ else }}
                 <li>
                     <a href="{{ $reg_p.RelPermalink }}">{{ $reg_p.Title }}</a>

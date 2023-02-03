@@ -2,7 +2,11 @@
 
     <h1>{{ .Parent.Title }}</h1>
 
-    <img src="{{ (.Resources.GetMatch "images/band.png").RelPermalink }}" alt="{{ .Title }}">
+    {{ with .Resources.GetMatch "images/band.png" }}
+        {{ with .Resize "800x" }}
+            <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+        {{ end }}
+    {{ end }}
 
     {{ .Content }}
     
