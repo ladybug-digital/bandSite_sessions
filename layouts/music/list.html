@@ -1,33 +1,48 @@
 {{ define "main" }}
 
     <h4>all releases</h4>
+    
     {{ with .Site.Params.release_types }}
         {{ range $page_val := where ($.Pages.ByParam "data.year") "Params.data.type" "in" . }}
-            <div>
-                {{ with .Params.data.cover }}
-                    {{ with $page_val.Resources.GetMatch . }}
-                        {{ with .Resize "100x" }}
-                            <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+            {{ if $page_val.Params.data.disco_gs_id }}
+                {{ with partial "disco_gs.html" . }}
+                    <div>
+                        {{ with .img }}
+                                {{ with .Resize "100x" }}
+                                    <img src="{{ .RelPermalink }}">
+                                {{ end }}
+                        {{ end }}
+                        <a href="{{ $page_val.RelPermalink }}">{{ $page_val.Title }}</a>
+                        <hr>
+                    </div>
+                {{ end }}
+            {{ else }}
+                <div>
+                    {{ with .Params.data.cover }}
+                        {{ with $page_val.Resources.GetMatch . }}
+                            {{ with .Resize "100x" }}
+                                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+                            {{ end }}
                         {{ end }}
                     {{ end }}
-                {{ end }}
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                <hr>
-            </div>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <hr>
+                </div>
+            {{ end }}
         {{ end }}
     {{ end }}
 
     <h2>all songs</h2>
-    {{ range $page := where .RegularPagesRecursive.ByTitle "Params.layout" "==" nil }}
+    {{ range $page_val := where .RegularPagesRecursive.ByTitle "Params.layout" "==" nil }}
         <div>
             {{ with .Params.data.cover }}
-                {{ with or ($page.Resources.GetMatch .) ($page.Parent.Resources.GetMatch .) }}
+                {{ with or ($page_val.Resources.GetMatch .) ($page_val.Parent.Resources.GetMatch .) }}
                     {{ with .Resize "50x" }}
                         <img src="{{ .RelPermalink }}">
                     {{ end }}
                 {{ end }}
             {{ end }}
-            <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+            <a href="{{ $page_val.RelPermalink }}">{{ $page_val.Title }}</a>
             <hr>
         </div>
     {{ end }}

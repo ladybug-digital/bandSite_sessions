@@ -1,19 +1,36 @@
 {{ define "main" }}
 
-    <h1>{{ .Title }}</h1>
-    <p>{{ .Params.data.type }}</p>
-
-    {{ with .Params.data.cover }}
-        {{ with $.Resources.GetMatch . }}
-            {{ with .Resize "500x" }}
-                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+    {{ if .Params.data.disco_gs_id }}
+        {{ with partial "disco_gs.html" . }}
+            <h1>{{ .title }}</h1>
+            {{ with .img }}
+                {{ with .Resize "500x" }}
+                    <img src="{{ .RelPermalink }}" alt="">
+                {{ end }}
+            {{ end }}            
+            <h4>Songs:</h4>
+            <ol>
+                {{ range .tracklist }}
+                    {{ range . }}
+                        <li>{{ . }}</li>
+                    {{ end }}
+                {{ end }}
+            </ol>
+        {{ end }}
+    {{ else }}
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Params.data.type }}</p>
+        {{ with .Params.data.cover }}
+            {{ with $.Resources.GetMatch . }}
+                {{ with .Resize "500x" }}
+                    <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+                {{ end }}
             {{ end }}
         {{ end }}
-    {{ end }}
-
-    <h4>Songs:</h4>
-    {{ range .RegularPages.ByParam "data.track_num" }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        <h4>Songs:</h4>
+        {{ range .RegularPages.ByParam "data.track_num" }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
     {{ end }}
     
 {{ end }}

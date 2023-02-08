@@ -6,6 +6,7 @@ disableKinds = ["taxonomy","term"]
 
 [Params]
   release_types = ['Album', 'DVD', 'single']
+  discoGs_token = 'GmkhrkUTjIATRAkDxmxcIrNJbGoUsnYjxCAyFPlm'
 
 [menu]
 [[menu.main]]
