@@ -5,17 +5,25 @@
     <p><b>Date: "{{ .Date | time.Format ":date_full" }}"</b></p>
     <hr>
 
-    {{ with .Resources.GetMatch .Params.event.flyer }}
-        {{ with .Resize "500x" }}
-            <h3>{{ .Title }}</h3>
-            <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+    {{ if .Params.event.flyer }}
+        {{ with .Resources.GetMatch .Params.event.flyer }}
+            {{ with .Resize "500x" }}
+                <h3>{{ .Title }}</h3>
+                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+            {{ end }}
+        {{ else }}
+            {{ warnf "%s %q" "Resource not found. Check front matter \".event.flyer\" entry in" .File.Path }}
         {{ end }}
     {{ end }}
-        
-    {{ with .Resources.GetMatch .Params.event.venue }}
-        {{ with .Resize "500x" }}
-            <h3>{{ .Title }}</h3>
-            <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+    
+    {{ if .Params.event.venue }}
+        {{ with .Resources.GetMatch .Params.event.venue }}
+            {{ with .Resize "500x" }}
+                <h3>{{ .Title }}</h3>
+                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+            {{ end }}
+        {{ else }}
+            {{ warnf "%s %q" "Resource not found. Check front matter \".event.venue\" entry in" .File.Path }}
         {{ end }}
     {{ end }}
 

@@ -6,18 +6,28 @@
             {{ with .Params.album_thumbnail }}
                 {{ with $reg_p.Resources.GetMatch . }}
                     {{ with .Resize "500x" }}
-                        <figure>
-                            <a href="{{ $reg_p.RelPermalink }}">
+                        <a href="{{ $reg_p.RelPermalink }}">
+                            <figure>
                                 <img src="{{ .RelPermalink }}" alt="{{ $reg_p.Title }}">
                                 <figcaption>{{ $reg_p.Title }}</figcaption>
-                            </a>
-                        </figure>
+                            </figure>
+                        </a>
                     {{ end }}
+                {{ else }}
+                    <li><a href="{{ $reg_p.RelPermalink }}">{{ $reg_p.Title }}</a></li>
+                    {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $reg_p.File.Path }}
                 {{ end }}
             {{ else }}
-                <li>
-                    <a href="{{ $reg_p.RelPermalink }}">{{ $reg_p.Title }}</a>
-                </li>
+                {{ erroridf "error-no-gallery-thumbnail" "%s %q %s" "Please enter '.Params.album_thumbnail' in"
+                        $reg_p.File.Path "to set gallery thumbnail" }}
+                <a href="{{ $reg_p.RelPermalink }}">
+                    <figure>
+                        {{ with (resources.GetMatch "images/default_gallery_thumbnail.jpg").Resize "500x" }}
+                            <img src="{{ .RelPermalink }}" alt="{{ $reg_p.Title }}">
+                        {{ end }}
+                    <figcaption>{{ $reg_p.Title }}</figcaption>
+                    </figure>
+                </a>
             {{ end }}
         {{ end }}
 

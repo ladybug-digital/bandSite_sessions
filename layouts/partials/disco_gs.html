@@ -8,33 +8,30 @@
 {{ $tracklist := slice }}
 {{ $format := "" }}
 
-{{ range first 1 $response.images }}
-    {{ $img := resources.GetRemote .resource_url }}
-    {{ $data = merge $data (dict "img" $img) }}
-{{ end }}
-
-{{ range $response.tracklist }}
-    {{ $tracklist = $tracklist | append .title }}
-    {{ $data = merge $data (dict "tracklist" (slice $tracklist)) }}
-{{ end }}
-
-{{ with $response.title }}
-    {{ $data = merge $data (dict "title" .) }}
-{{ end }}
-
-{{ range $response.formats }}
-    {{ if eq .name "CD" }}
-        {{ $format = "Album" }}
-    {{ else if eq .name "DVD" }}
-        {{ $format = "DVD" }}
-    {{ else }}
-        {{ $format = "Other"}}
+{{ with $response }}
+    {{ range first 1 .images }}
+        {{ $img := resources.GetRemote .resource_url }}
+        {{ $data = merge $data (dict "img" $img) }}
     {{ end }}
-    {{ $data = merge $data (dict "type" $format)}}
-{{ end }}
 
-{{ with $response.year }}
-    {{ $data = merge $data (dict "year" .) }}
+    {{ range .tracklist }}
+        {{ $tracklist = $tracklist | append .title }}
+        {{ $data = merge $data (dict "tracklist" (slice $tracklist)) }}
+    {{ end }}
+
+    {{ range .formats }}
+        {{ if eq .name "CD" }}
+            {{ $format = "Album" }}
+        {{ else if eq .name "DVD" }}
+            {{ $format = "DVD" }}
+        {{ else }}
+            {{ $format = "Other"}}
+        {{ end }}
+            {{ $data = merge $data (dict "type" $format)}}
+    {{ end }}
+
+    {{ $data = merge $data (dict "title" .title) }}
+    {{ $data = merge $data (dict "year" .year) }}
 {{ end }}
 
 {{ return $data }}

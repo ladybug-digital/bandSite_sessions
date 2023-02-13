@@ -2,6 +2,7 @@ baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'bandSite SessionS'
 
+ignoreErrors = ["error-no-gallery-thumbnail", "error-remote-getjson"]
 disableKinds = ["taxonomy","term"]
 
 [Params]

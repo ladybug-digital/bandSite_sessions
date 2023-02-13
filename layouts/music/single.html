@@ -7,6 +7,8 @@
                     <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
                 </figure>
             {{ end }}
+        {{ else }}
+                {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $.File.Path }}
         {{ end }}
     {{ end }}
 
@@ -19,8 +21,12 @@
     {{- end }}
     <hr>
     
-    {{ with .Resources.GetMatch $.Params.data.audio }}
-        <audio controls src="{{ .RelPermalink }}"></audio>
+    {{ with .Params.data.audio }}
+        {{ with $.Resources.GetMatch . }}
+            <audio controls src="{{ .RelPermalink }}"></audio>
+        {{ else }}
+            {{ warnf "%s %q" "Resource not found. Check front matter \".data.audio\" entry in" $.File.Path }}
+        {{ end }}
     {{ end }}
     
 {{ end }}

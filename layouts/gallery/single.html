@@ -7,6 +7,13 @@
                 <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
             </a>
         {{ end }}
+    {{ else }}
+        {{ with resources.GetMatch "images/default_gallery_album_image.png" }}
+            {{ with .Resize "600x" }}
+                <img src="{{ .RelPermalink }}" alt="">
+            {{ end }}
+        {{ end }}
+        {{ warnf "%s%s%s" "Default album image is showing. Please add some images in '" $.File.Dir "images/' dir" }}
     {{ end }}
 
 {{ end }}

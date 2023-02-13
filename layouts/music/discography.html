@@ -23,6 +23,8 @@
                             {{ with .Resize "100x" }}
                                 <img src="{{ .RelPermalink }}" alt="{{.Title }}">
                             {{ end }}
+                        {{ else }}
+                            {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $page_val.File.Path }}
                         {{ end }}
                     {{ end }}
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
