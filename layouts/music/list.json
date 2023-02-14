@@ -1,0 +1,20 @@
+{{ $result := newScratch }}
+{{ $result.Set "pages" slice }}
+{{ $music_index := .GetPage "music/_index.md" }}
+
+{{ range where (where .Site.Pages "Section" "music") "File.Path" "!=" $music_index.File.Path }}
+    {{ $result.SetInMap "current" "url" .RelPermalink }}
+    {{ $result.SetInMap "current" "title" .Title }}
+    {{ $result.SetInMap "current" "content" .Plain }}
+
+    {{ with .Resources.GetMatch .Params.data.cover }}
+        {{ $cover := (.Resize "100x webp").Permalink }}
+        {{ $result.SetInMap "current" "cover" $cover }}
+    {{ end }}
+
+    {{ $result.Add "pages" ($result.Get "current") }}
+    {{ $result.Delete "current" }}
+
+{{ end }}
+
+{{ $result.Get "pages" | jsonify }}

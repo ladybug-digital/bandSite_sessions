@@ -5,6 +5,9 @@
 /assets/jsconfig.json
 hugo_stats.json
 
+# NPM
+/node_modules/
+
 # Executable may be added to repository
 hugo.exe
 hugo.darwin
