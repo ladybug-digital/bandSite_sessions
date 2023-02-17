@@ -30,7 +30,7 @@ const search = async () => {
     }
 }
 
-showResult = (event) => {
+const showResult = (event) => {
     const results = index.search(searchBox.value).slice(0, RESULTS_NUM);
     if (results.length > 0) {
         searchResults.innerHTML = results.map((el) => {
@@ -54,7 +54,7 @@ showResult = (event) => {
     }
 }
 
-searchBoxFocus = (event) => {
+const searchBoxFocus = (event) => {
     const removeAllResults = (parent) => {
         while (parent.firstElementChild) {
             parent.removeChild(parent.firstElementChild);

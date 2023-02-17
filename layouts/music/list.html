@@ -1,11 +1,11 @@
-    {{ define "main" }}
-        <form id="search">
-            <input type="search" placeholder="Search press 'Ctrl + /', or 'Esc'">
-            <div id="searchResults"></div>
-        </form>
-
-    <h4>all releases</h4>
+{{ define "main" }}
+    <form id="search">
+        <input type="search" placeholder="Search press 'Ctrl + /', or 'Esc'">
+        <div id="searchResults"></div>
+    </form>
     
+    <h4>all releases</h4>
+
     {{ with .Site.Params.release_types }}
         {{ range $page_val := where ($.Pages.ByParam "data.year") "Params.data.type" "in" . }}
             {{ if $page_val.Params.data.disco_gs_id }}

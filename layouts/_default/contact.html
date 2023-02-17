@@ -1,0 +1,12 @@
+{{ define "main" }}
+
+    <form id="contact" action="https://getform.io/thank-you" style="display: flex; flex-direction: column; align-items: center;">
+        <input type="text" name="name" placeholder="Your Name">
+        <input type="email" name="email" placeholder="Your Email">
+        <textarea name="message" placeholder="Your Message" rows="10" cols="50"></textarea>
+        <button type="submit">Send</button>
+    </form>
+    
+    {{ .Content }}
+
+{{ end }}

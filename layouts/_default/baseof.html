@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ $params := dict "MUSIC_URL" (printf "%s%s" site.BaseURL "music/") }}
     {{ $search := resources.Get "js/search.js" | js.Build (dict "params" $params) }}
+    {{ $contact := resources.Get "js/contact.js" | js.Build }}
     <script src="{{ $search.RelPermalink }}" defer></script>
+    <script src="{{ $contact.RelPermalink }}" defer></script>
     <title>{{ .Title }}</title>
 </head>
 <body>
