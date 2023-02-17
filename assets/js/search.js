@@ -7,7 +7,7 @@ const RESULTS_NUM = 5;
 
 const search = async () => {
     try {
-        let response = await window.fetch(params.MUSIC_URL + 'index.json');
+        let response = await window.fetch(params.PATH);
             if (!response.ok) {
                 return;
             }

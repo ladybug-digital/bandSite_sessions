@@ -5,7 +5,6 @@
     </form>
     
     <h4>all releases</h4>
-
     {{ with .Site.Params.release_types }}
         {{ range $page_val := where ($.Pages.ByParam "data.year") "Params.data.type" "in" . }}
             {{ if $page_val.Params.data.disco_gs_id }}

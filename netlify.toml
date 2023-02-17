@@ -1,0 +1,8 @@
+[build]
+  publish = "public/"
+  command = "hugo --gc --minify --baseURL $DEPLOY_PRIME_URL"
+
+[build.environment]
+  HUGO_VERSION = "0.101.0"
+  NODE_VERSION = "16.18.1"
+  NPM_VERSION = "8.19.2"
