@@ -4,31 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ with .OutputFormats.Get "json" }}
+    {{/*  {{ with .OutputFormats.Get "json" }}
         {{ $params := dict "PATH" .Permalink }}
         {{ $search := resources.Get "js/search.js" | js.Build (dict "params" $params) }}
         <script src="{{ $search.RelPermalink }}" defer></script>
-    {{ end }}
+    {{ end }}  */}}
     {{ $contact := resources.Get "js/contact.js" | js.Build }}
     <script src="{{ $contact.RelPermalink }}" defer></script>
+    {{ $style := resources.Get "css/output.css" }}
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
     <title>{{ .Title }}</title>
 </head>
-    <body>
-        {{ range .Site.Menus.main }}
-            <a {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} style="font-size: 1.5em;" {{ end }} 
-                href="{{ .URL }}">{{ .Name }}
-            </a>
-            {{ if .HasChildren }}
-                {{ range .Children }}
-                    <a {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} style="font-size: 1.5em;" {{ end }} 
-                        href="{{ .URL }}">{{ .Name }}
-                    </a>
-                {{ end }}
-            {{ end }}
-        {{ end }}
+    <body class="w-screen h-screen flex flex-col bg-base-100">
+
+        <nav>
+            <div class="min-h-[4vh] flex justify-between mb-1 bg-navbar">
+                <div class="navbar w-fit h-full bg-neutral md:flex">
+    {{/*  mobile  */}}
+                    <div class="navbar-start">
+                        <div class="dropdown">
+                            <label tabindex="0" class="btn btn-white lg:hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                                </svg>
+                            </label>
+                            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
+                                {{ range .Site.Menus.main }}
+                                    <li>
+                                        <a class="text-white"
+                                            {{ if $.IsMenuCurrent "main" . }}
+                                                style="font-size: 1.5rem; color: #079A82;"
+                                            {{ end }} 
+                                            href="{{ .URL }}">{{ .Name }}
+                                        </a>
+                                    </li>
+                                    {{ if .HasChildren }}
+                                        {{ range .Children }}
+                                            <li>
+                                                <a class="text-white"
+                                                    {{ if $.IsMenuCurrent "main" . }}
+                                                        style="font-size: 1.5rem; color: #079A82;"
+                                                    {{ end }} href="{{ .URL }}">{{ .Name }}
+                                                </a>
+                                            </li>
+                                        {{ end }}
+                                    {{ end }}
+                                {{ end }}
+                            </ul> 
+                        </div>
+                    </div>
+    {{/*  large  */}}
+                    <div class="navbar-center h-full hidden lg:flex">
+                        <ul class="menu menu-horizontal px-1">
+                            {{ range .Site.Menus.main }}
+                                <li>
+                                    <a class="text-neutral-content"
+                                        {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+                                            style="font-size: 1.5rem; color: #079A82; border-top: 4px; border-style: solid;
+                                                border-color: #079A82;"
+                                        {{ end }} 
+                                        href="{{ .URL }}">{{ .Name }}
+                                    </a>
+                                </li>
+                                {{ if .HasChildren }}
+                                    {{ range .Children }}
+                                        <li>
+                                            <a class="text-neutral-content"
+                                                {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+                                                    style="font-size: 1.5rem; color: #079A82; border-top: 4px; border-style: solid;
+                                                        border-color: #079A82;"
+                                                {{ end }} 
+                                                href="{{ .URL }}">{{ .Name }}
+                                            </a>
+                                        </li>
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </nav>
         
         {{ block "main" . }}
-
+            
         {{ end }}
         
     </body>

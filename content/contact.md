@@ -8,6 +8,6 @@ menu:
     weight: 50
 ---
 
-**John Doe**
-: telephone_receiver: +12345678
-: email: bandSite@example.com
+**John Doe**  
+:telephone_receiver: +12345678  
+:email: bandSite@example.com

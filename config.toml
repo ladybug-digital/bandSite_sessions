@@ -1,6 +1,7 @@
 BaseURL = 'http://example.com'
 languageCode = 'en-us'
 title = 'bandSite SessionS'
+enableEmoji = true
 
 ignoreErrors = ["error-no-gallery-thumbnail", "error-remote-getjson"]
 disableKinds = ["taxonomy","term"]

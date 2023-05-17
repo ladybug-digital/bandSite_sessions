@@ -1,0 +1,17 @@
+<div class="about-band-card border-primary m-auto">
+    <div class="about-band-text">
+        {{ with .Get "name" }}
+                <h1 class="bg-primary">{{ . }}</h1>
+        {{ end }}
+        
+        <div class="overflow-scroll m-auto">
+            {{ .Inner | markdownify }}
+        </div>
+    </div>
+    
+    {{ with .Get "img" }}
+        <div class="about-band-img">
+            <img src="{{ ($.Page.Resources.GetMatch .).RelPermalink }}" class="">
+        </div>
+    {{ end }}
+</div>

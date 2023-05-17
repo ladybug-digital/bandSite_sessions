@@ -1,0 +1,21 @@
+<div class="about-member-card border-primary">
+
+    <div class="about-member-header bg-primary">
+        {{ with .Get "name" }}
+            <h2 id="member-name">{{ . }}</h2>
+        {{ end }}
+        {{ with .Get "role" }}
+            <p id="member-role">{{ . }}</p>
+        {{ end }}
+        {{ with .Get "img" }}
+            <div class="about-member-img">
+                <img src="{{ ($.Page.Resources.GetMatch .).RelPermalink }}" alt="">
+            </div>
+        {{ end }}
+    </div>
+    
+    <div class="about-member-text">
+        {{ .Inner | markdownify }}
+    </div>
+    
+</div>

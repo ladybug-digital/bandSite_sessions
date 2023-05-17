@@ -1,24 +1,25 @@
 {{ define "main" }}
 
-    <h2>{{ .Title }}</h2>
-    
-    {{ range $elm_val := .RegularPages.ByDate }}
-        {{ if in $elm_val.RelPermalink "/calendar/events/" }}
-            <p>Title: <b>{{ $elm_val.Title }}</b></p>
-            {{ with .Params.event.public }}
-                <p style="color: green;">Date: <b>{{ $elm_val.Date | time.Format "Monday, January 2, 2006" }}</b></p>
-                <a href="{{ $elm_val.RelPermalink }}">event details</a>
-                <hr>
-            {{ else }}
-                <p style="color: red;">{{ $elm_val.Date | time.Format "Monday, January 2, 2006" }}</p>
-                <hr>
-            {{ end }}        
+    <div class="flex flex-col w-full m-auto overflow-scroll p-4 lg:max-w-[1024px]
+            lg:shrink-0 lg:justify-start bg-navbar rounded-box">
+        {{ range .RegularPages.ByDate }}
+            {{ if in .RelPermalink "/calendar/events" }}
+                <div class="flex flex-col bg-neutral-content {{ with .Params.event.public }} bg-primary {{ end }}
+                        rounded-box p-4 lg:p-8 lg:flex-row lg:justify-between">
+                    <div class="flex flex-col md:flex-row md:justify-between lg:basis-[95%]">
+                        <h2 class="p-2 md:min-w-[30%]">{{ .Title }}</h2>
+                        <p class="p-2 md:min-w-[30%]">{{ .Description }}</p>
+                        <p class="p-2 md:min-w-[30%]">{{ .Date | time.Format "Monday, January 2, 2006" }}</p>
+                    </div>
+                    {{ if .Params.event.public }}
+                        <a href="{{ .RelPermalink }}" class="shrink-0 link link-accent self-center p-2">info</a>
+                    {{ else }}
+                        <p class="shrink-0 self-center p-2">private</p>
+                    {{ end }}
+                </div>
+                <div class="divider flex-shrink-0"></div> 
+            {{ end }}
         {{ end }}
-    {{ end }}
-
-    {{ with .GetPage "public_events" }}
-        <h2>public events</h2>
-        <a href="{{ .RelPermalink }}">click for all public events</a>
-    {{ end }}
+    </div>
 
 {{ end }}

@@ -1,59 +1,89 @@
 {{ define "main" }}
-    <form id="search">
-        <input type="search" placeholder="Search press 'Ctrl + /', or 'Esc'">
-        <div id="searchResults"></div>
-    </form>
-    
-    <h4>all releases</h4>
-    {{ with .Site.Params.release_types }}
-        {{ range $page_val := where ($.Pages.ByParam "data.year") "Params.data.type" "in" . }}
-            {{ if $page_val.Params.data.disco_gs_id }}
-                {{ with partial "disco_gs.html" . }}
-                    <div>
-                        {{ with .img }}
-                            {{ with .Resize "100x" }}
-                                <img src="{{ .RelPermalink }}">
-                            {{ end }}
-                        {{ end }}
-                        <a href="{{ $page_val.RelPermalink }}">{{ $page_val.Title }}</a>
-                        <hr>
-                    </div>
-                {{ else }}
-                    <li><a href="{{ $page_val.RelPermalink }}">{{ $page_val.Title }}</a></li>
-                {{ end }}
-            {{ else }}
-                <div>
-                    {{ with $page_val.Params.data.cover }}
-                        {{ with $page_val.Resources.GetMatch . }}
-                            {{ with .Resize "100x" }}
-                                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+
+    {{/*  <form id="search" class="flex flex-col absolute right-0 m-2 lg:self-end">
+        <input id="input_search" type="text" placeholder="Tap to search or press 'Ctrl + /'"
+            class="input input-bordered min-h-[3rem] input-primary w-full lg:max-w-xl"/>
+        <ul id="searchResults" class="w-full relative h-auto max-h-[50vh] z-10 invisible
+            divide-y divide-black overflow-scroll bg-neutral-content border-b-2 border-x-2
+            rounded-b-lg border-primary lg:max-w-xl p-2 mt-2 mr-2"></ul>
+    </form>  */}}
+
+    <div class="flex flex-col grow overflow-scroll items-center">
+
+        {{ with .Site.Params.release_types }}
+            <div id="releases" class="music-releases">
+                <h2 class="text-3xl p-1 m-1">Releases</h2>
+                <div class="release-list">
+                    {{ range $page_val := where ($.Pages.ByParam "data.year") "Params.data.type" "in" . }}
+                    {{/*  from DISCO_GS  */}}
+                        {{ if $page_val.Params.data.disco_gs_id }}
+                            {{ with partial "disco_gs.html" . }}
+                                <a href="{{ $page_val.RelPermalink }}"
+                                    class="grow max-w-[150px] p-2">
+                                    <div class="release-card">
+                                        {{ with .img }}
+                                            {{ with (.Resize "200x").Fill "200x200" }}
+                                                <img src="{{ .RelPermalink }}" class="rounded-lg w-[100%]">
+                                            {{ end }}
+                                        {{ end }}
+                                        <p class="text-xl m-4">{{ $page_val.Title }}</p>
+                                    </div>
+                                </a>
+                            {{ else }}
+                                <div>
+                                    <a class="p-4 shadow-lg shadow-primary" href="{{ $page_val.RelPermalink }}">{{ $page_val.Title }}</a>
+                                </div>
                             {{ end }}
                         {{ else }}
-                            {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $page_val.File.Path }}
+                    {{/*  from FS  */}}
+                            <a href="{{ .RelPermalink }}"
+                                class="grow max-w-[150px] p-2">
+                                <div class="release-card">
+                                    {{ with $page_val.Params.data.cover }}
+                                        {{ with $page_val.Resources.GetMatch . }}
+                                            {{ with (.Resize "200x").Fill "200x200" }}
+                                                <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="rounded-lg w-[100%]">
+                                            {{ end }}
+                                        {{ else }}
+                                            {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $page_val.File.Path }}
+                                        {{ end }}
+                                    {{ end }}
+                                    <p class="text-xl m-4">{{ .Title }}</p>
+                                </div>
+                            </a>
                         {{ end }}
                     {{ end }}
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                    <hr>
                 </div>
-            {{ end }}
+            </div>
         {{ end }}
-    {{ end }}
 
-    <h2>all songs</h2>
-    {{ range $page_val := where .RegularPagesRecursive.ByTitle "Params.layout" "==" nil }}
-        <div>
-            {{ with $page_val.Params.data.cover }}
-                {{ with or ($page_val.Resources.GetMatch .) ($page_val.Parent.Resources.GetMatch .) }}
-                    {{ with .Resize "50x" }}
-                        <img src="{{ .RelPermalink }}">
+
+        {{ with (where .RegularPagesRecursive.ByTitle "Params.layout" "==" nil) }}
+            <div id="songs" class="music-releases">
+                <h2 class="text-3xl p-1 m-1">Songs</h2>
+                <div class="release-list">
+                    {{ range $page_val := . }}
+                    {{/*  grow shrink-0 min-w-[50%] max-w-[50%] md:min-w-[20%] md:max-w-[20%]  */}}
+                        <a href="{{ $page_val.RelPermalink }}"
+                            class="max-w-[150px] p-2">
+                            <div class="release-card">
+                                {{ with $page_val.Params.data.cover }}
+                                    {{ with or ($page_val.Resources.GetMatch .) ($page_val.Parent.Resources.GetMatch .) }}
+                                        {{ with (.Resize "200x").Fill "200x200" }}
+                                            <img src="{{ .RelPermalink }}" class="rounded-lg w-[100%]">
+                                        {{ end }}
+                                    {{ else }}
+                                        {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $page_val.File.Path }}
+                                    {{ end }}
+                                {{ end }}
+                                <p class="text-xl m-4">{{ $page_val.Title }}</p>
+                            </div>
+                        </a>
                     {{ end }}
-                {{ else }}
-                    {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $page_val.File.Path }}
-                {{ end }}
-            {{ end }}
-            <a href="{{ $page_val.RelPermalink }}">{{ $page_val.Title }}</a>
-            <hr>
-        </div>
-    {{ end }}
+                </div>
+            </div>
+        {{ end }}
 
+    </div>
+    
 {{ end }}

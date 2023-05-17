@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Calendar on bandSite SessionS</title>
+    <link>http://localhost:1313/calendar/</link>
+    <description>Recent content in Calendar on bandSite SessionS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Jan 2023 09:16:04 +0100</lastBuildDate><atom:link href="http://localhost:1313/calendar/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Muissic Rolling party</title>
+      <link>http://localhost:1313/calendar/events/2023-04-03/</link>
+      <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/calendar/events/2023-04-03/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Public events</title>
+      <link>http://localhost:1313/calendar/public_events/</link>
+      <pubDate>Thu, 19 Jan 2023 13:48:23 +0100</pubDate>
+      
+      <guid>http://localhost:1313/calendar/public_events/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Country Dance Club</title>
+      <link>http://localhost:1313/calendar/events/2022-04-03/</link>
+      <pubDate>Sun, 03 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/calendar/events/2022-04-03/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MSIC festival</title>
+      <link>http://localhost:1313/calendar/events/2022-02-06/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/calendar/events/2022-02-06/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jazz &amp; Cabaret club Louis</title>
+      <link>http://localhost:1313/calendar/events/2022-02-02/</link>
+      <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/calendar/events/2022-02-02/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

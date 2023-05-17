@@ -1,13 +1,16 @@
 {{ define "main" }}
 
-    <h1>{{ .Parent.Title }}</h1>
+        {{/*  <h1>{{ .Parent.Title }}</h1>  */}}
 
-    {{ with .Resources.GetMatch "images/band.png" }}
-        {{ with .Resize "800x" }}
-            <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
-        {{ end }}
-    {{ end }}
-
-    {{ .Content }}
+        {{/*  {{ with .Resources.GetMatch "images/band.png" }}
+            {{ with .Resize "800x" }}
+                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+            {{ end }}
+        {{ end }}  */}}
+        
+    <div class="overflow-scroll max-w-[1050px] lg:h-screen self-center
+        lg:flex flex-wrap lg:justify-start">
+        {{ .Content }}
+    </div>
     
 {{ end }}

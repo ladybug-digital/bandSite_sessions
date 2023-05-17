@@ -8,7 +8,7 @@
     {{ $result.SetInMap "current" "content" .Plain }}
 
     {{ with .Resources.GetMatch .Params.data.cover }}
-        {{ $cover := (.Resize "100x webp").Permalink }}
+        {{ $cover := (.Resize "50x webp").Permalink }}
         {{ $result.SetInMap "current" "cover" $cover }}
     {{ end }}
 

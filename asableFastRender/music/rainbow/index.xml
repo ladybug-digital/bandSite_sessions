@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rainbow on bandSite SessionS</title>
+    <link>http://localhost:1313/music/rainbow/</link>
+    <description>Recent content in Rainbow on bandSite SessionS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Jan 2023 12:33:57 +0100</lastBuildDate><atom:link href="http://localhost:1313/music/rainbow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tell me all about it</title>
+      <link>http://localhost:1313/music/rainbow/tell_me_all_about_it/</link>
+      <pubDate>Fri, 27 Jan 2023 12:36:02 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/rainbow/tell_me_all_about_it/</guid>
+      <description>Verse 1:
+I&amp;rsquo;m just a small town girl, with big dreams in my head
+I may be shy, but I&amp;rsquo;ve got a fire burning deep inside
+I&amp;rsquo;ve got a heart that&amp;rsquo;s full of love, and a soul that&amp;rsquo;s full of grace
+I&amp;rsquo;ll chase my dreams, no matter how far I have to chase
+Chorus:
+Cause I&amp;rsquo;m not just a face in the crowd, I&amp;rsquo;m a force to be reckoned with</description>
+    </item>
+    
+    <item>
+      <title>Shamanic rain dance</title>
+      <link>http://localhost:1313/music/rainbow/shamanic_rain_dance/</link>
+      <pubDate>Fri, 27 Jan 2023 12:35:42 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/rainbow/shamanic_rain_dance/</guid>
+      <description>Verse 1:
+Dancing in the circle, beating drums
+Calling on the spirits, to bring the rains
+Chanting ancient words, under the sun
+Asking for the blessings, for everyone
+Chorus:
+Rain, rain, come down on us
+Bring life to the land, and the crops to trust
+Rain, rain, we need you now
+So come and dance with us, and show us how
+Verse 2:
+Shaking the rattle, and waving the feathers</description>
+    </item>
+    
+    <item>
+      <title>Rainbow</title>
+      <link>http://localhost:1313/music/rainbow/rainbow/</link>
+      <pubDate>Fri, 27 Jan 2023 12:34:30 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/rainbow/rainbow/</guid>
+      <description>Verse 1:
+Colors of the rainbow
+Shine so bright and true
+A promise of tomorrow
+In every hue
+Chorus:
+Rainbow, rainbow
+You light up my life
+With your beauty so rare
+You chase away the strife
+Verse 2:
+From the darkest storm
+Comes the brightest rainbo w A symbol of hope reborn
+After the rain goes
+Chorus:
+Rainbow, rainbow
+You light up my life
+With your beauty so rare
+You chase away the strife</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,34 +1,109 @@
 {{ define "main" }}
 
-    <h1>{{ .Title | pluralize }}</h1>
+        {{ with .RegularPages }}
+            {{/*  <div class="overflow-scroll flex flex-col">  */}}
+                {{/*  <h1 class="text-2xl md:text-4xl text-center leading-[2rem] p-4 items-center">{{ $.Title | pluralize }}</h1>  */}}
+                <div class="gallery">
+                    {{ range $index, $reg_p := . }}
+                        {{ with .Params.album_thumbnail }}
+                            {{ with $reg_p.Resources.GetMatch . }}
+                                <div class="">
+                                    <label for="my-modal-{{$index}}" class="cursor-pointer">
+                                        
+                                        <div class="stack">
+                                            <div class="flex justify-center items-center w-fit rounded-xl bg-opacity-70 bg-navbar text-primary-content ">
+                                                <h2 class="text-2xl p-4 font-bold">{{ $reg_p.Title }}</h2>
+                                            </div>
+                                            <img src="{{ ((.Resize "400x").Fill "300x300").RelPermalink }}" class="rounded-2xl">
+                                            {{ range $reg_p.Resources.ByType "image" }}
+                                                <img src="{{ ((.Resize "400x").Fill "300x300").RelPermalink }}" class="rounded-2xl" />
+                                            {{ end }}
+                                        </div>
+                                        
+                                    </label>
+                                    <input type="checkbox" id="my-modal-{{$index}}" class="modal-toggle" />
 
-        {{ range $reg_p := .RegularPages }}
-            {{ with .Params.album_thumbnail }}
-                {{ with $reg_p.Resources.GetMatch . }}
-                    {{ with .Resize "500x" }}
-                        <a href="{{ $reg_p.RelPermalink }}">
-                            <figure>
-                                <img src="{{ .RelPermalink }}" alt="{{ $reg_p.Title }}">
-                                <figcaption>{{ $reg_p.Title }}</figcaption>
-                            </figure>
-                        </a>
-                    {{ end }}
-                {{ else }}
-                    <li><a href="{{ $reg_p.RelPermalink }}">{{ $reg_p.Title }}</a></li>
-                    {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $reg_p.File.Path }}
-                {{ end }}
-            {{ else }}
-                {{ erroridf "error-no-gallery-thumbnail" "%s %q %s" "Please enter '.Params.album_thumbnail' in"
-                        $reg_p.File.Path "to set gallery thumbnail" }}
-                <a href="{{ $reg_p.RelPermalink }}">
-                    <figure>
-                        {{ with (resources.GetMatch "images/default_gallery_thumbnail.jpg").Resize "500x" }}
-                            <img src="{{ .RelPermalink }}" alt="{{ $reg_p.Title }}">
+                                    <label for="my-modal-{{$index}}" class="modal cursor-pointer">
+                                        <label class="modal-box flex flex-col basis-[1300px] grow-0" for="">
+
+                                            <div class="carousel">
+                                                {{ range $img_index, $img := $reg_p.Resources.ByType "image" }}
+                                                    <div id="item{{$index}}-{{ $img_index }}" class="carousel-item w-full justify-center">
+                                                        <img src="{{ ($img.Resize "500x").RelPermalink }}" class="object-contain">
+                                                    </div>
+                                                {{ end }}
+                                            </div>
+                                            <div class="flex justify-center w-full py-2 gap-2">
+                                                {{ range $img_index, $img := $reg_p.Resources.Match "images/*.jpg" }}
+                                                    <a href="#item{{$index}}-{{ $img_index }}" class="btn btn-xs">{{ add $img_index 1 }}</a>
+                                                {{ end }}
+                                            </div>    
+
+                                        </label>
+                                    </label>
+                                </div>
+                            {{ else }}
+                                <a href="{{ $reg_p.RelPermalink }}">{{ $reg_p.Title }}</a>
+                                {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $reg_p.File.Path }}
+                            {{ end }}
+                        {{ else }}
+                            {{ erroridf "error-no-gallery-thumbnail" "%s %q %s" "Please enter '.Params.album_thumbnail' in"
+                                $reg_p.File.Path "to set gallery thumbnail" }}
+                                
+                                {{/*  <a href="{{ $reg_p.RelPermalink }}">
+                                    <div class="card w-96 glass hover:bg-primary-focus bg-primary">
+                                        {{ with (resources.GetMatch "images/default_gallery_thumbnail.jpg").Resize "600x" }}
+                                            <figure><img src="{{ (.Resize "500x").RelPermalink }}"/></figure>
+                                        {{ end }}
+                                        <div class="card-body">
+                                            <h2 class="card-title">{{ $reg_p.Title}}</h2>
+                                        </div>
+                                    </div>
+                                </a>  */}}
                         {{ end }}
-                    <figcaption>{{ $reg_p.Title }}</figcaption>
-                    </figure>
-                </a>
-            {{ end }}
+                    {{ end }}
+                </div>
+            {{/*  </div>  */}}
         {{ end }}
+        
+        {{/*  {{ with .RegularPages }}
+            <div class="flex flex-col grow min-h-fit overflow-scroll">
+                <h1 class="text-4xl text-center leading-[4rem] p-4 self-start">{{ $.Title | pluralize }}</h1>
+                <div class="gallery">
+                    {{ range $reg_p := . }}
+                        {{ with .Params.album_thumbnail }}
+                            {{ with $reg_p.Resources.GetMatch . }}
+                                {{ with .Resize "400x" }}
+                                        <a href="{{ $reg_p.RelPermalink }}">
+                                            <div class="card glass hover:bg-primary-focus bg-primary">
+                                                <figure><img src="{{ .RelPermalink }}"/></figure>
+                                                <div class="card-body">
+                                                    <h2 class="card-title">{{ $reg_p.Title}}</h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                {{ end }}
+                            {{ else }}
+                                <a href="{{ $reg_p.RelPermalink }}">{{ $reg_p.Title }}</a>
+                                {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $reg_p.File.Path }}
+                            {{ end }}
+                        {{ else }}
+                            {{ erroridf "error-no-gallery-thumbnail" "%s %q %s" "Please enter '.Params.album_thumbnail' in"
+                                $reg_p.File.Path "to set gallery thumbnail" }}
+                                <a href="{{ $reg_p.RelPermalink }}">
+                                    <div class="card w-96 glass hover:bg-primary-focus bg-primary">
+                                        {{ with (resources.GetMatch "images/default_gallery_thumbnail.jpg").Resize "600x" }}
+                                            <figure><img src="{{ .RelPermalink }}"/></figure>
+                                        {{ end }}
+                                        <div class="card-body">
+                                            <h2 class="card-title">{{ $reg_p.Title}}</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                        {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+        {{ end }}  */}}
 
 {{ end }}

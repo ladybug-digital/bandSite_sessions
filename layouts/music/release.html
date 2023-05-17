@@ -2,35 +2,130 @@
 
     {{ if .Params.data.disco_gs_id }}
         {{ with partial "disco_gs.html" . }}
-            <h1>{{ .title }}</h1>
-            {{ with .img }}
-                {{ with .Resize "500x" }}
-                    <img src="{{ .RelPermalink }}" alt="">
-                {{ end }}
-            {{ end }}            
-            <h4>Songs:</h4>
-            <ol>
-                {{ range .tracklist }}
-                    {{ range . }}
-                        <li>{{ . }}</li>
-                    {{ end }}
-                {{ end }}
-            </ol>
+            <section class="overflow-scroll flex flex-col grow justify-center">
+                {{/* px-4 py-16 sm:px-6 lg:px-8 */}}
+                <div class="w-[90%] max-w-[1024px] h-[90%] lg:h-1/2 self-center">
+                    <div class="grid grid-rows-1 lg:grid-cols-2 h-full">
+                        <div class="relative z-10">
+                            <div class="relative h-full">
+                                {{ with .img }}
+                                    <img src="{{ .RelPermalink }}" class="absolute inset-0 h-full w-full object-contain" alt="{{ .Title }}">
+                                {{ end }}
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-center bg-primary h-[45vh] lg:h-auto bg-[url('')]">
+                            <span class="hidden lg:absolute lg:inset-y-0 lg:-left-16 lg:block lg:w-16 lg:bg-primary"></span>
+                            <div class="p-4 sm:p-4 lg:p-8 h-full w-full overflow-scroll">
+                                <div class="p-4">
+                                    <h2 class="text-2xl font-bold sm:text-3xl">
+                                        {{ .title }}
+                                    </h2>
+                                    <p>{{ .type }}</p>
+                                </div>
+                                <ol class="list-decimal p-4">
+                                    {{ range .tracklist }}
+                                        {{ range . }}
+                                            <li class="ml-5 sm:ml-10 sm:text-xl">{{ . }}</li>
+                                        {{ end }}
+                                        {{/*  <p>{{ . }}</p>
+                                        <p>{{ . }}</p>
+                                        <p>{{ . }}</p>  */}}
+                                    {{ end }}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         {{ end }}
     {{ else }}
-        <h1>{{ .Title }}</h1>
-        <p>{{ .Params.data.type }}</p>
-        {{ with .Params.data.cover }}
-            {{ with $.Resources.GetMatch . }}
-                {{ with .Resize "500x" }}
-                    <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
-                {{ end }}
-            {{ end }}
-        {{ end }}
-        <h4>Songs:</h4>
-        {{ range .RegularPages.ByParam "data.track_num" }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{ end }}
+        <section class="overflow-scroll flex flex-col grow justify-center">
+            {{/* px-4 py-16 sm:px-6 lg:px-8 */}}
+            <div class="w-[90%] max-w-[1024px] h-[90%] lg:h-1/2 self-center">
+                <div class="grid grid-rows-1 lg:grid-cols-2 h-full">
+                    <div class="relative z-10">
+                        <div class="relative h-full">
+                            {{ with .Params.data.cover }}
+                                {{ with $.Resources.GetMatch . }}
+                                    <img src="{{ .RelPermalink }}" class="absolute inset-0 h-full w-full object-contain" alt="{{ .Title }}">
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+
+                    <div class="relative flex items-center bg-primary h-[45vh] lg:h-auto bg-[url('')]">
+                        <span class="hidden lg:absolute lg:inset-y-0 lg:-left-16 lg:block lg:w-16 lg:bg-primary"></span>
+                        <div class="p-4 sm:p-4 lg:p-8 h-full w-full overflow-scroll">
+                            <div class="p-4">
+                                <h2 class="text-2xl font-bold sm:text-3xl">
+                                    {{ .Title }}
+                                </h2>
+                                <p>{{ .Params.data.type }}</p>
+                            </div>
+                            <ol class="list-decimal p-4">
+                                {{ range .RegularPages.ByParam "data.track_num" }}
+                                    <a href="{{ .RelPermalink }}" class="link link-accent block"><li class="ml-5 sm:ml-10 sm:text-xl">{{ .Title }}</li></a>
+                                    {{/*  <a href="{{ .RelPermalink }}"><p class="mt-4">{{ .Title }}</p></a>  */}}
+                                {{ end }}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     {{ end }}
+
+    {{/*  <div class="grow flex flex-col overflow-scroll">
+        {{ if .Params.data.disco_gs_id }}
+            {{ with partial "disco_gs.html" . }}
+                <div class="p-4">
+                    <h1 class="text-3xl text-primary">{{ .title }}</h1>
+                    <p>{{ .type }}</p>
+                </div>
+
+                <div class="p-4">
+                    {{ with .img }}
+                        {{ with .Resize "500x" }}
+                            <div class="mb-4">
+                                <img src="{{ .RelPermalink }}" alt="">
+                            </div>
+                        {{ end }}
+                    {{ end }}            
+                    <div>
+                        <ol>
+                            {{ range .tracklist }}
+                                {{ range . }}
+                                    <li>{{ . }}</li>
+                                {{ end }}
+                            {{ end }}
+                        </ol>
+                    </div>
+                </div>
+            {{ end }}
+        {{ else }}
+            <div class="p-4">
+                <h1 class="text-3xl text-primary">{{ .Title }}</h1>
+                <p>{{ .Params.data.type }}</p>
+            </div>
+
+            <div class="p-4">
+                {{ with .Params.data.cover }}
+                    {{ with $.Resources.GetMatch . }}
+                        {{ with .Resize "500x" }}
+                            <div class="mb-4">
+                                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+                            </div>
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+                    <ol>
+                        {{ range .RegularPages.ByParam "data.track_num" }}
+                            <li class="link"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                        {{ end }}
+                    </ol>
+            </div>
+        {{ end }}
+    </div>  */}}
     
 {{ end }}

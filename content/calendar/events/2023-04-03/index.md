@@ -6,5 +6,5 @@ draft: false
 event:
   public: true
   flyer: "muissic_flyer.png"
-  venue: 
+  venue: "place.png"
 ---

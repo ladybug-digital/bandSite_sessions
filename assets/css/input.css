@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .card {
+    @apply w-auto max-h-[300px];
+} */
+
+.card > figure > img {
+    @apply w-full;
+}
+
+.divider {
+    @apply m-0;
+}
+
+.modal-box {
+    @apply max-w-none max-h-[50%] landscape:max-h-[90vh] landscape:max-w-[90vw];
+}
+
+@layer components {
+    .music-releases {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        overflow: scroll;
+        min-height: 50%;
+    }
+
+    .release-list {
+        background-color: #CFCFCF;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        max-height: 80%;
+        align-items: flex-start;
+        overflow: scroll;
+        border-radius: 1rem;
+        box-shadow: 0px 0px 15px 1px rgba(7,154,130,0.8);
+    }
+
+    .release-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-rows: repeat(auto-fit, minmax(300px, 300px));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+        gap: 1rem;
+        justify-content: center;
+        align-self: center;
+        margin-bottom: auto;
+        margin-top: auto;
+        overflow: scroll;
+        padding-bottom: 2rem;
+        width: 100%;
+        background-color: #cfcfcf;
+        box-shadow: 0px 0px 15px 1px rgba(7,154,130,0.8);
+        border-radius: 1rem;
+    }
+
+    .about-band-card {
+        display: flex;
+        flex-direction: column;
+        border: .25rem solid;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+        
+    }
+    .about-band-text > h1 {
+        padding: 1rem;
+        font-size: 2rem;
+    }
+    .about-band-text > div p {
+        padding: 1rem 1rem 0 1rem;
+        text-align: justify;
+    }
+
+    .about-member-card {
+        border: .25rem solid;
+        border-radius: 1rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.074);
+    }
+
+    #member-name {
+        font-size: 2rem;
+        padding: .25rem .25rem 0 .25rem;
+    }
+    #member-role {
+        font-size: 1rem;
+        padding: 0 .25rem .25rem .25rem;
+    }
+    .about-member-img > img {
+        border-radius: 1rem 1rem 0 0;
+    }
+    .about-member-text {
+        overflow: scroll;
+    }
+    .about-member-text > p {
+        padding: 1rem 1rem 0 1rem;
+        text-align: justify;
+    }
+
+    .lyrics > p {
+        padding: 1rem;
+    }
+    .lyrics > i {
+        margin-left: 1rem;
+        font-size: small;
+    }
+    
+    @media (min-width: 640px) {
+        .about-band-card {
+            max-width: 640px;
+        }
+        .about-member-card {
+            max-width: 640px;
+            margin: .25rem;
+        }
+        .lyrics > i {
+            font-size: 1rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .gallery {
+            width: 768px;
+        } 
+
+        .about-band-card {
+            display: block;
+            max-width: 768px;
+        }
+    
+        .about-member-card {
+            max-width: 768px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .music-releases {
+            width: 100%;
+        }
+        .release-list {
+            max-width: 1024px;
+        }
+
+        /* .gallery {
+            flex-basis: 80%;
+            flex-grow: 0;
+            align-self: center;
+            max-width: 1024px;
+            margin-top: auto;
+            margin-bottom: auto;
+        } */
+        .gallery {
+            max-width: 1024px;
+            min-width: 1024px;
+        }
+
+        .about-band-card {
+            max-width: 1024px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 30rem;
+            max-height: 500px;
+        }
+        .about-band-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-member-card {
+            max-width: 24%;
+            min-width: 24%;
+            max-height: 40rem;
+        }
+    }
+    
+
+}
+

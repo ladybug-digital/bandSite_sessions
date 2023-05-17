@@ -1,5 +1,17 @@
 {{ define "main" }}
 
-    {{ .Content }}
+    <div class="flex flex-col grow justify-evenly items-center">
+        <h1 class="text-primary text-5xl md:text-6xl p-5 font-semibold">{{ .Title }}</h1>
+
+        <div>
+            {{ .Content }}
+        </div>
+
+        <div class="p-4">
+            {{/*  <p class="text-neutral text-sm md:text-xl">Contact us:</p>  */}}
+            <p class="text-neutral text-sm md:text-xl">&#128222; +12345678</p>
+            <p class="text-neutral text-sm md:text-xl">&#128231; bandSite@example.com</p>
+        </div>
+    </div>
 
 {{ end }}

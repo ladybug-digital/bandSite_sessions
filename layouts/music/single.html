@@ -1,32 +1,37 @@
 {{ define "main" }}
 
-    {{ with .Params.data.cover }}
-        {{ with or ($.Resources.GetMatch .) ($.Parent.Resources.GetMatch .) }}
-            {{ with .Resize "500x" }}
-                <figure>
-                    <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
-                </figure>
+    <div class="flex flex-col overflow-scroll md:w-[768px] md:m-auto p-2">
+        <div class="flex justify-between shrink-0 overflow-hidden bg-primary rounded-t-xl">
+            <h1 class="text-2xl p-4">{{ .Title }}</h1>
+
+            {{ with .Params.data.cover }}
+                {{ with or ($.Resources.GetMatch .) ($.Parent.Resources.GetMatch .) }}
+                    {{ with .Resize "500x" }}
+                        <figure class="w-1/2">
+                            <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+                        </figure>
+                    {{ end }}
+                {{ else }}
+                        {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $.File.Path }}
+                {{ end }}
             {{ end }}
-        {{ else }}
-                {{ warnf "%s %q" "Resource not found. Check front matter \".data.cover\" entry in" $.File.Path }}
-        {{ end }}
-    {{ end }}
+        </div>
 
-    <h1>{{ .Title }}</h1>
-    
-    {{.Content}}
-
-    {{- if or .Params.data.lyrics .Params.data.music .Params.data.arr -}}
-        <i>( {{ .Params.data.lyrics }} - {{ .Params.data.music }} - {{ .Params.data.arr }} )</i>
-    {{- end }}
-    <hr>
-    
-    {{ with .Params.data.audio }}
-        {{ with $.Resources.GetMatch . }}
-            <audio controls src="{{ .RelPermalink }}"></audio>
-        {{ else }}
-            {{ warnf "%s %q" "Resource not found. Check front matter \".data.audio\" entry in" $.File.Path }}
+        {{ with .Params.data.audio }}
+            {{ with $.Resources.GetMatch . }}
+                <audio class="w-full bg-navbar rounded-sm sticky top-0" controls src="{{ .RelPermalink }}"></audio>
+            {{ else }}
+                {{ warnf "%s %q" "Resource not found. Check front matter \".data.audio\" entry in" $.File.Path }}
+            {{ end }}
         {{ end }}
-    {{ end }}
+
+        <div class="lyrics overflow-scroll border-x-4 border-b-4 border-primary">
+            {{.Content}}
+
+            {{- if or .Params.data.lyrics .Params.data.music .Params.data.arr -}}
+                <i>( {{ .Params.data.lyrics }} - {{ .Params.data.music }} - {{ .Params.data.arr }} )</i>
+            {{- end }}
+        </div>
+    </div>
     
 {{ end }}

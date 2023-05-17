@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>band name on bandSite SessionS</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in band name on bandSite SessionS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Dec 2022 09:50:34 +0100</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ojla</title>
+      <link>http://localhost:1313/gallery/test4/</link>
+      <pubDate>Thu, 16 Mar 2023 16:48:12 +0100</pubDate>
+      
+      <guid>http://localhost:1313/gallery/test4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Concerts</title>
+      <link>http://localhost:1313/gallery/concerts/</link>
+      <pubDate>Fri, 13 Jan 2023 08:25:07 +0100</pubDate>
+      
+      <guid>http://localhost:1313/gallery/concerts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Weddings</title>
+      <link>http://localhost:1313/gallery/weddings/</link>
+      <pubDate>Fri, 13 Jan 2023 16:23:37 +0100</pubDate>
+      
+      <guid>http://localhost:1313/gallery/weddings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>http://localhost:1313/gallery/test/</link>
+      <pubDate>Thu, 16 Mar 2023 15:25:25 +0100</pubDate>
+      
+      <guid>http://localhost:1313/gallery/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Muissic Rolling party</title>
+      <link>http://localhost:1313/calendar/events/2023-04-03/</link>
+      <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/calendar/events/2023-04-03/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test3</title>
+      <link>http://localhost:1313/gallery/test3/</link>
+      <pubDate>Thu, 16 Mar 2023 15:27:02 +0100</pubDate>
+      
+      <guid>http://localhost:1313/gallery/test3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test2</title>
+      <link>http://localhost:1313/gallery/test2/</link>
+      <pubDate>Thu, 16 Mar 2023 15:27:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/gallery/test2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test1</title>
+      <link>http://localhost:1313/gallery/test1/</link>
+      <pubDate>Thu, 16 Mar 2023 15:26:58 +0100</pubDate>
+      
+      <guid>http://localhost:1313/gallery/test1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Tue, 14 Feb 2023 11:19:03 +0100</pubDate>
+      
+      <guid>http://localhost:1313/contact/</guid>
+      <description>John Doe
+📞 +12345678
+✉️ bandSite@example.com</description>
+    </item>
+    
+    <item>
+      <title>A night at opera</title>
+      <link>http://localhost:1313/music/a_night_at_opera/</link>
+      <pubDate>Mon, 06 Feb 2023 15:50:37 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/a_night_at_opera/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Discography</title>
+      <link>http://localhost:1313/music/discography/</link>
+      <pubDate>Mon, 30 Jan 2023 22:17:41 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/discography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>What&#39;s left</title>
+      <link>http://localhost:1313/music/whats_left/</link>
+      <pubDate>Fri, 27 Jan 2023 12:55:43 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/whats_left/</guid>
+      <description>Verse 1:
+I&amp;rsquo;m standing here with nothing left
+My heart is heavy, my soul bereft
+I&amp;rsquo;ve lost the love that I once held dear
+And now I&amp;rsquo;m left with nothing but fear
+Chorus:
+What&amp;rsquo;s left, what&amp;rsquo;s left,
+When all the love is gone
+What&amp;rsquo;s left, what&amp;rsquo;s left,
+When everything is wrong
+Verse 2:
+I try to move on but it&amp;rsquo;s hard to do
+When all I see is what&amp;rsquo;s left of you</description>
+    </item>
+    
+    <item>
+      <title>Tell me all about it</title>
+      <link>http://localhost:1313/music/rainbow/tell_me_all_about_it/</link>
+      <pubDate>Fri, 27 Jan 2023 12:36:02 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/rainbow/tell_me_all_about_it/</guid>
+      <description>Verse 1:
+I&amp;rsquo;m just a small town girl, with big dreams in my head
+I may be shy, but I&amp;rsquo;ve got a fire burning deep inside
+I&amp;rsquo;ve got a heart that&amp;rsquo;s full of love, and a soul that&amp;rsquo;s full of grace
+I&amp;rsquo;ll chase my dreams, no matter how far I have to chase
+Chorus:
+Cause I&amp;rsquo;m not just a face in the crowd, I&amp;rsquo;m a force to be reckoned with</description>
+    </item>
+    
+    <item>
+      <title>Shamanic rain dance</title>
+      <link>http://localhost:1313/music/rainbow/shamanic_rain_dance/</link>
+      <pubDate>Fri, 27 Jan 2023 12:35:42 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/rainbow/shamanic_rain_dance/</guid>
+      <description>Verse 1:
+Dancing in the circle, beating drums
+Calling on the spirits, to bring the rains
+Chanting ancient words, under the sun
+Asking for the blessings, for everyone
+Chorus:
+Rain, rain, come down on us
+Bring life to the land, and the crops to trust
+Rain, rain, we need you now
+So come and dance with us, and show us how
+Verse 2:
+Shaking the rattle, and waving the feathers</description>
+    </item>
+    
+    <item>
+      <title>Rainbow</title>
+      <link>http://localhost:1313/music/rainbow/rainbow/</link>
+      <pubDate>Fri, 27 Jan 2023 12:34:30 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/rainbow/rainbow/</guid>
+      <description>Verse 1:
+Colors of the rainbow
+Shine so bright and true
+A promise of tomorrow
+In every hue
+Chorus:
+Rainbow, rainbow
+You light up my life
+With your beauty so rare
+You chase away the strife
+Verse 2:
+From the darkest storm
+Comes the brightest rainbo w A symbol of hope reborn
+After the rain goes
+Chorus:
+Rainbow, rainbow
+You light up my life
+With your beauty so rare
+You chase away the strife</description>
+    </item>
+    
+    <item>
+      <title>Never believe in me</title>
+      <link>http://localhost:1313/music/old_memories/never_believe_in_me/</link>
+      <pubDate>Fri, 27 Jan 2023 12:11:59 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/old_memories/never_believe_in_me/</guid>
+      <description>Verse 1:
+I&amp;rsquo;ve been hiding behind a mask
+But I&amp;rsquo;m just a fraud, just a task
+I&amp;rsquo;ve been living a lie
+But now it&amp;rsquo;s time to die
+Chorus:
+Never believe in me
+I&amp;rsquo;m not who I seem
+I&amp;rsquo;m just a broken soul
+Lost in my own dream
+Verse 2:
+I&amp;rsquo;ve been running from the truth
+But it&amp;rsquo;s catching up to me, like a noose
+I&amp;rsquo;ve been living in fear
+But now it&amp;rsquo;s time to hear</description>
+    </item>
+    
+    <item>
+      <title>Little girl</title>
+      <link>http://localhost:1313/music/old_memories/little_girl/</link>
+      <pubDate>Fri, 27 Jan 2023 12:11:42 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/old_memories/little_girl/</guid>
+      <description>Verse 1:
+Little girl with big brown eyes
+Wandering through the world so wise
+With a heart full of dreams
+And a spirit that beams
+Chorus:
+You&amp;rsquo;re a force to be reckoned with
+A shining star that never quits
+You&amp;rsquo;re a fighter, you&amp;rsquo;re a winner
+You&amp;rsquo;re the future, little sinner
+Verse 2:
+Little girl, you&amp;rsquo;re growing up
+With the world at your feet, you&amp;rsquo;re in luck
+You&amp;rsquo;re strong, you&amp;rsquo;re brave</description>
+    </item>
+    
+    <item>
+      <title>Old memories</title>
+      <link>http://localhost:1313/music/old_memories/old_memories/</link>
+      <pubDate>Fri, 27 Jan 2023 12:11:23 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/old_memories/old_memories/</guid>
+      <description>Verse 1:
+Old memories creeping in
+Making my heart ache again
+Pictures on the wall
+Remind me of it all
+Chorus:
+Old memories, they never die
+They keep on haunting me
+I try to run, but they catch up
+Old memories, they&amp;rsquo;re all I see
+Verse 2:
+Time has passed, but it feels like yesterday
+When we were young and wild and free
+Now I&amp;rsquo;m standing here alone
+With nothing but old memories</description>
+    </item>
+    
+    <item>
+      <title>Let me rock you</title>
+      <link>http://localhost:1313/music/free_sky/let_me_rock_you/</link>
+      <pubDate>Wed, 25 Jan 2023 08:38:06 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/free_sky/let_me_rock_you/</guid>
+      <description>Verse 1:
+I see you standing there
+With your head held down
+You&amp;rsquo;re feeling lost and alone
+But I&amp;rsquo;m here to turn it around
+Chorus:
+Let me rock you, let me hold you tight
+I&amp;rsquo;ll chase away the shadows in the night
+I&amp;rsquo;ll be your shelter, I&amp;rsquo;ll be your guide
+Let me rock you, let me be your ride
+Verse 2:
+You&amp;rsquo;re carrying a heavy load
+But I&amp;rsquo;ll be the one to lighten the load</description>
+    </item>
+    
+    <item>
+      <title>What tomorrow brings</title>
+      <link>http://localhost:1313/music/free_sky/what_tomorrow_brings/</link>
+      <pubDate>Tue, 24 Jan 2023 15:07:25 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/free_sky/what_tomorrow_brings/</guid>
+      <description>Verse 1:
+I don&amp;rsquo;t know what the future holds
+But I know I&amp;rsquo;ll never be alone
+With every step that I take
+I&amp;rsquo;ll make my own way
+Chorus:
+I&amp;rsquo;ll live for today
+And I&amp;rsquo;ll trust in tomorrow
+I&amp;rsquo;ll take a leap of faith
+And see what tomorrow brings
+Verse 2:
+I&amp;rsquo;ll chase my dreams with all my might
+And I&amp;rsquo;ll shine as bright as the sun
+I&amp;rsquo;ll never let anyone bring me down</description>
+    </item>
+    
+    <item>
+      <title>Free sky</title>
+      <link>http://localhost:1313/music/free_sky/free_sky/</link>
+      <pubDate>Tue, 24 Jan 2023 14:26:06 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/free_sky/free_sky/</guid>
+      <description>Verse 1:
+I see the world in a different way
+When I&amp;rsquo;m looking at the sky so blue
+Everything feels brand new
+With the clouds passing by
+Chorus:
+I&amp;rsquo;m singing my free skysong
+With the wind in my hair
+I&amp;rsquo;m flying so high
+I don&amp;rsquo;t have a care
+Verse 2:
+The sun shining down on me
+Makes me feel so alive
+With the world at my feet
+I&amp;rsquo;ll take this chance and fly</description>
+    </item>
+    
+    <item>
+      <title>Clap your hands</title>
+      <link>http://localhost:1313/music/clap_your_hands/</link>
+      <pubDate>Mon, 23 Jan 2023 18:05:22 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/clap_your_hands/</guid>
+      <description>Verse 1:
+Come on everybody let&amp;rsquo;s have some fun
+Clap your hands, clap, clap, clap
+We&amp;rsquo;re gonna dance and sing under the sun
+Clap your hands, clap, clap, clap
+Chorus:
+Clap your hands, everybody clap your hands
+Let&amp;rsquo;s make some noise and take a stand
+Clap your hands, everybody clap your hands
+Let&amp;rsquo;s show the world we&amp;rsquo;re in command
+Verse 2:
+Let&amp;rsquo;s raise our voices to the sky
+Clap your hands, clap, clap, clap</description>
+    </item>
+    
+    <item>
+      <title>Chain of Lies</title>
+      <link>http://localhost:1313/music/chain_of_lies/</link>
+      <pubDate>Mon, 23 Jan 2023 11:51:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/music/chain_of_lies/</guid>
+      <description>Verse 1:
+Started off with a little white lie
+Thought it wouldn&amp;rsquo;t hurt, thought it would fly by
+But the truth it unraveled, one by one
+And now my whole world&amp;rsquo;s undone
+Chorus:
+Chain of lies, chain of lies
+It&amp;rsquo;s all falling apart
+Chain of lies, chain of lies
+Breaking my heart
+Verse 2:
+I tried to cover it up, but it never worked
+The weight of the deception, it just got worse</description>
+    </item>
+    
+    <item>
+      <title>Public events</title>
+      <link>http://localhost:1313/calendar/public_events/</link>
+      <pubDate>Thu, 19 Jan 2023 13:48:23 +0100</pubDate>
+      
+      <guid>http://localhost:1313/calendar/public_events/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Fri, 30 Dec 2022 14:48:01 +0100</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      <description>band name Formed in the summer of 2010, The Wild Ones quickly made a name for themselves with their high-energy live performances and catchy, hook-laden songs. Comprised of four friends who met in college, the band - fronted by the dynamic duo of lead singers/guitarists Jake and Sara - quickly gained a devoted following on the local music scene.
+After releasing a series of well-received EPs, The Wild Ones dropped their debut full-length album, &amp;ldquo;Breaking Free,&amp;rdquo; in 2015.</description>
+    </item>
+    
+    <item>
+      <title>Country Dance Club</title>
+      <link>http://localhost:1313/calendar/events/2022-04-03/</link>
+      <pubDate>Sun, 03 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/calendar/events/2022-04-03/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MSIC festival</title>
+      <link>http://localhost:1313/calendar/events/2022-02-06/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/calendar/events/2022-02-06/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jazz &amp; Cabaret club Louis</title>
+      <link>http://localhost:1313/calendar/events/2022-02-02/</link>
+      <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/calendar/events/2022-02-02/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

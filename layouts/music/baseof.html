@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{/*  {{ with .OutputFormats.Get "json" }}  */}}
+        {{ $params := dict "PATH" "/music/index.json" }}
+        {{ $search := resources.Get "js/search.js" | js.Build (dict "params" $params) }}
+        <script src="{{ $search.RelPermalink }}" defer></script>
+    {{/*  {{ end }}  */}}
+    {{ $style := resources.Get "css/output.css" }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    <title>{{ .Title }}</title>
+</head>
+    <body class="w-screen h-screen flex flex-col">
+        
+        {{/*  <nav>  */}}
+            <nav class="min-h-16 flex justify-between bg-navbar">
+                <div class="navbar w-fit h-full bg-neutral md:flex">
+                {{/*  mobile  */}}
+                    <div class="navbar-start">
+                        <div class="dropdown">
+                            <label tabindex="0" class="btn btn-white lg:hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                                </svg>
+                            </label>
+                            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
+                                {{ range .Site.Menus.main }}
+                                    <li>
+                                        <a class="text-white"
+                                            {{ if $.IsMenuCurrent "main" . }}
+                                                style="font-size: 1.5rem; color: #079A82;"
+                                            {{ end }} 
+                                            href="{{ .URL }}">{{ .Name }}
+                                        </a>
+                                    </li>
+                                    {{ if .HasChildren }}
+                                        {{ range .Children }}
+                                            <li>
+                                                <a class="text-white"
+                                                    {{ if $.IsMenuCurrent "main" . }} 
+                                                        style="font-size: 1.5rem; color: #079A82;"
+                                                    {{ end }} 
+                                                    href="{{ .URL }}">{{ .Name }}
+                                                </a>
+                                            </li>
+                                        {{ end }}
+                                    {{ end }}
+                                {{ end }}
+                            </ul> 
+                        </div>
+                    </div>
+                {{/*  large  */}}
+                    <div class="navbar-center h-full hidden lg:flex">
+                        <ul class="menu menu-horizontal px-1">
+                            {{ range .Site.Menus.main }}
+                                <li>
+                                    <a class="text-neutral-content"
+                                        {{ if $.IsMenuCurrent "main" . }}
+                                            style="font-size: 1.5rem; color: #079A82; border-top: 4px; border-style: solid;
+                                                border-color: #079A82;"
+                                        {{ end }} 
+                                        href="{{ .URL }}">{{ .Name }}
+                                    </a>
+                                </li>
+                                {{ if .HasChildren }}
+                                    {{ range .Children }}
+                                        <li>
+                                            <a class="text-neutral-content"
+                                                {{ if $.IsMenuCurrent "main" . }}
+                                                    style="font-size: 1.5rem; color: #079A82; border-top: 4px; border-style: solid;
+                                                        border-color: #079A82;"
+                                                {{ end }} 
+                                                href="{{ .URL }}">{{ .Name }}
+                                            </a>
+                                        </li>
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+                
+                <form id="search" class="flex flex-col m-2 max-h-full relative justify-center">
+                    <input id="input_search" type="text" placeholder="Tap to search or press 'Ctrl + /'"
+                        class="input input-bordered min-h-[3rem] input-primary w-full lg:max-w-xl"/>
+                    {{/*  <ul id="searchResults" class="w-full absolute top-12 h-auto max-h-[50vh] z-10 invisible
+                        divide-y divide-black overflow-scroll bg-neutral-content border-b-2 border-x-2
+                        rounded-b-lg border-primary lg:max-w-xl p-2 mt-2 mr-2"></ul>  */}}
+                    <ul id="searchResults" class="w-full absolute top-12 h-auto max-h-[50vh] z-10 invisible
+                        divide-y overflow-scroll bg-neutral-content border-b-2 border-x-2
+                        rounded-b-lg border-primary lg:max-w-xl p-2 mt-2 mr-2"></ul>
+                </form>
+            </nav>
+        {{/*  </nav>  */}}
+
+        {{ block "main" . }}
+            
+        {{ end }}
+    </body>
+</html>
